@@ -1,6 +1,6 @@
 # Metavie Celestial Simulator
 
-AGPL-3.0-or-later. Independent generic celestial visualization, version 0.1.0.
+MIT. Independent generic celestial visualization, version 0.1.0.
 
 `npm ci && npm test`. `npx playwright install chromium` then `npm run record -- shots/landscape.json output/landscape` (requires FFmpeg with libx264). Portrait: use `shots/portrait.json`.
 
@@ -20,7 +20,7 @@ Ring is optional external generic geometry: `[{id,start_deg,width_deg,color}]`. 
 
 Cross-device assertions cover state and angular geometry to 1e-10 degrees. Pixel hashes apply only to an identical browser/SwiftShader/OS/architecture/font environment recorded by the CLI. Node dependencies and Chromium revision are pinned by package-lock.json. FFmpeg version is recorded; MP4 bitstreams are not asserted identical across encoders. Never compare pixels across devices. No external textures or random runtime assets; see THIRD_PARTY_NOTICES.md.
 
-Source recipients and network users must receive corresponding source and this license. Before any deployment, link SOURCE_URL in SOURCE.md to the actual immutable source revision. No production deployment is included.
+Redistribution must retain the copyright and permission notice in LICENSE. MIT does not require source disclosure solely because software is made available over a network. SOURCE.md identifies the corresponding source repository and revision guidance.
 
 For the verified local recording environment, set `CELESTIAL_CHROMIUM_PATH` to a Chromium 145.0.7632.6 executable. The default uses Playwright’s bundled Chromium; its pixels are a separate baseline. See evidence/verification.json for the pinned proof environment.
 
