@@ -1,0 +1,21 @@
+{
+  "browser": "145.0.7632.6",
+  "deviceScaleFactor": 2,
+  "canvasPixels": [
+    800,
+    600
+  ],
+  "cssPixels": [
+    400,
+    300
+  ],
+  "checks": [
+    "WebGL real pointer selects sun",
+    "CSS-scaled coordinates at DPR 2",
+    "drag does not select",
+    "empty click does not select",
+    "actual WebGL context loss switches canvas",
+    "fallback pointer selects same sun"
+  ],
+  "pageErrors": []
+}

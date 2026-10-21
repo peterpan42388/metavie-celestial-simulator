@@ -25,3 +25,9 @@ Source recipients and network users must receive corresponding source and this l
 For the verified local recording environment, set `CELESTIAL_CHROMIUM_PATH` to a Chromium 145.0.7632.6 executable. The default uses Playwright’s bundled Chromium; its pixels are a separate baseline. See evidence/verification.json for the pinned proof environment.
 
 `createView(data,options,{canvasFactory,onMode})` automatically replaces the canvas after WebGL initialization failure, context loss or `reportFrameDuration(ms)` above budget. `setOptions` switches discrete datasets while keeping the active fallback. The host provides and mounts fresh canvases. No DOM globals are accessed.
+
+## Pointer selection
+
+`view.selectAt(x,y)` accepts local pixel coordinates in the same viewport units passed to `view.render(width,height)`, with origin at the top left. It returns a boolean and emits the existing `{id,state}` callback only for a hit marked `pending` or `discovered`. WebGL uses actual sphere/axis/ring raycasts; decorative labels and the horizon are excluded. The nearest hit owns the click, including disabled objects. Invalid/outside coordinates return false.
+
+See [the minimal pointer example](examples/picking.html): the host maps `clientX/clientY` through `getBoundingClientRect()` into render viewport units. This handles CSS scaling and device pixel ratio without DOM access inside the scene. It also suppresses drags and attaches handlers to every replacement canvas, so context-loss fallback remains interactive. Serve the repository root locally to open the example. Run `node scripts/verify-picking.mjs` to check real browser clicks, scaling and context-loss fallback; optionally set `CELESTIAL_CHROMIUM_PATH` as for recording.

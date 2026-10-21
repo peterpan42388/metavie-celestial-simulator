@@ -26,7 +26,7 @@ export function createView(data, options, {canvasFactory, onMode, rendererFactor
     render,
     reportFrameDuration(ms){if(Number.isFinite(ms)&&ms>33.34)switchToFallback('performance');},
     setOptions(next){state(data,next);currentOptions=next;if(mode==='webgl'){release();try{renderer=rendererFactory(canvas,data,next);canvas.addEventListener?.('webglcontextlost',lost);}catch{switchToFallback('render-failure');}}render(width,height);},
-    selectAt(x,y){return mode==='2d'?fallback?.selectAt(x,y):false;},
+    selectAt(x,y){if(disposed||![x,y].every(Number.isFinite)||x<0||y<0||x>=width||y>=height)return false;return mode==='2d'?(fallback?.selectAt(x,y)??false):renderer.selectAt(x,y,width,height);},
     get mode(){return mode;},
     dispose(){release();disposed=true;}
   };

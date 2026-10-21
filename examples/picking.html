@@ -1,0 +1,31 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Generic celestial pointer selection</title>
+<style>canvas{display:block;width:400px;height:300px;touch-action:none}body{background:#101827;color:#e2e8f0;font:16px sans-serif}</style>
+<div id="mount"></div><output id="selection">No selection</output>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js"}}</script>
+<script type="module">
+import {createView} from '../src/view.js';
+import {syntheticFixture} from '../src/fixtures.js';
+const width=800,height=600;
+const mount=document.querySelector('#mount'),output=document.querySelector('#selection');
+let view;
+function canvasFactory(){
+ const canvas=document.createElement('canvas');let start;
+ canvas.addEventListener('pointerdown',event=>{start={x:event.clientX,y:event.clientY,id:event.pointerId};canvas.setPointerCapture(event.pointerId);});
+ canvas.addEventListener('pointercancel',()=>{start=null;});
+ canvas.addEventListener('pointerup',event=>{
+  const down=start;start=null;
+  if(!down||down.id!==event.pointerId||Math.hypot(event.clientX-down.x,event.clientY-down.y)>5)return;
+  const rect=canvas.getBoundingClientRect();
+  view.selectAt((event.clientX-rect.left)*width/rect.width,(event.clientY-rect.top)*height/rect.height);
+ });
+ return canvas;
+}
+view=createView(syntheticFixture('synthetic_geometry_001'),{
+ moment_id:'moment_0',selection:{sun:'pending',moon:'discovered'},
+ onSelect:selection=>{output.textContent=JSON.stringify(selection);}
+},{canvasFactory,onMode:({canvas,mode})=>{mount.replaceChildren(canvas);mount.dataset.mode=mode;}});
+view.render(width,height);
+// Host cleanup: view.dispose(). Dataset/permissions update: view.setOptions(nextOptions).
+</script>
