@@ -28,7 +28,7 @@
     }
   ],
   "layers": {
-    "labels": false,
-    "ring": false
+    "labels": true,
+    "ring": true
   }
 }

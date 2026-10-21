@@ -6,6 +6,7 @@ export function createScene(data,options){
  for(const b of s.bodies){
   const geometry=b.kind==='axis'?new THREE.OctahedronGeometry(0.13):new THREE.SphereGeometry(b.id==='sun'?0.33:0.15,24,16);
   const object=new THREE.Mesh(geometry,new THREE.MeshBasicMaterial({color:b.color,transparent:true,opacity:b.opacity}));object.position.fromArray(b.position);object.userData={id:b.id};scene.add(object);
+  const texture=options.labelTextures?.[b.id];if(texture){const label=new THREE.Sprite(new THREE.SpriteMaterial({map:texture,transparent:true,opacity:b.opacity,depthTest:false}));label.position.copy(object.position).add(new THREE.Vector3(0,0.5,0));label.scale.set(1.6,0.4,1);scene.add(label);}
  }
  for(const segment of s.ring){const pts=Array.from({length:33},(_,i)=>new THREE.Vector3(...direction(segment.start_deg+segment.width_deg*i/32,0,12)));const line=new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts),new THREE.LineBasicMaterial({color:segment.color}));line.userData={id:segment.id};scene.add(line);}
  const horizon=new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(Array.from({length:180},(_,i)=>new THREE.Vector3(...direction(i*2,0,14)))),new THREE.LineBasicMaterial({color:'#334155'}));scene.add(horizon);
