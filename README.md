@@ -23,3 +23,5 @@ Cross-device assertions cover state and angular geometry to 1e-10 degrees. Pixel
 Source recipients and network users must receive corresponding source and this license. Before any deployment, link SOURCE_URL in SOURCE.md to the actual immutable source revision. No production deployment is included.
 
 For the verified local recording environment, set `CELESTIAL_CHROMIUM_PATH` to a Chromium 145.0.7632.6 executable. The default uses Playwright’s bundled Chromium; its pixels are a separate baseline. See evidence/verification.json for the pinned proof environment.
+
+`createView(data,options,{canvasFactory,onMode})` automatically replaces the canvas after WebGL initialization failure, context loss or `reportFrameDuration(ms)` above budget. `setOptions` switches discrete datasets while keeping the active fallback. The host provides and mounts fresh canvases. No DOM globals are accessed.
