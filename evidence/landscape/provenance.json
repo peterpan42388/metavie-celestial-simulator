@@ -1,0 +1,50 @@
+{
+  "schema_version": "cosmos_provenance.v1",
+  "simulator_release": "0.1.0",
+  "fixture_id": "synthetic_geometry_001",
+  "fixture_hash": "22f1191ff6fb109a8d7a6de492d5b072631db941a6b5c3a0bc6a38b29586960a",
+  "shot_hash": "598879954b419658c6f60777a683f5244f1d8aee6cacb3ba5700b9ab065baf03",
+  "assets": [
+    {
+      "id": "procedural-geometry",
+      "license": "AGPL-3.0-or-later",
+      "source": "repository/src"
+    },
+    {
+      "id": "three",
+      "license": "MIT",
+      "source": "https://github.com/mrdoob/three.js/tree/r180"
+    }
+  ],
+  "environment": {
+    "browser": "145.0.7632.6",
+    "platform": "darwin",
+    "arch": "arm64",
+    "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+    "os_release": "25.3.0",
+    "device_scale_factor": 1,
+    "source_commit": "a1bc30a2bf60b15b907b48e3896330cf7ab75617",
+    "source_hash": "6188b6669e3a6339a43f15bcfd793502225425ae18d5679b226494fc6f9443eb",
+    "ffmpeg": "ffmpeg version 8.0.1 Copyright (c) 2000-2025 the FFmpeg developers"
+  },
+  "render_settings": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "frames": 12
+  },
+  "frame_hashes": [
+    "70b12ad1d6fb5bd97fb8c215c75161039a3582ee7448b12ac2602748f8f653b2",
+    "d2455c14d2b728c9bbfccb698693bd8c1819bb0d03d1dd7db30ffd2843d4138e",
+    "7df89c019123d78d59c759277f7d910801005647e95881afa02a8df463c6876a",
+    "4e18d985e2b75ea9fd60218a8202433a2912f5856915b8a2bed3a397772f889c",
+    "ce7ea23c41222ca78b0049ab457e53fb83626b0cca61e1468fd7e79050bba84c",
+    "ed51161a81b4d628da3d850123ef08235299e44bb73ac093871de3911b0ea163",
+    "2de9607c56864a65f02c6487a9c7e48bf7df7f3e3979330be54b38475786b6ab",
+    "1e6e7766aa14340452f0ba26d37814a8d0a9ec97c02d099d48b2cffec7916511",
+    "54ed5e99829401753302bab092a98304d7de146d308eb7a8f8bd5cf6bab23aa6",
+    "4da78c0640df332e484f88a27b8c0ce1f0db01048feaa9a466af6aa0045d9606",
+    "98baee9d1300e90c1dea219d44e1c09fa99686361ea0df500bad9c1fae806688",
+    "920bdc3f89e9ff7c7e7261ee4f6568aa19f2f434132274e66d22cd781c4b8058"
+  ]
+}
