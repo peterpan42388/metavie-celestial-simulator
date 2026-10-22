@@ -1,6 +1,7 @@
 import {createRenderer} from './scene.js';
 import {drawFallback} from './fallback.js';
 import {state} from './state.js';
+import {projection} from './visuals.js';
 import {camera as validateCamera} from './contracts.js';
 
 // Canvas allocation/mounting stays with the host, including OffscreenCanvas hosts.
@@ -37,6 +38,7 @@ export function createView(data, options, {canvasFactory, onMode, rendererFactor
     get camera(){return {...currentOptions.camera};},
     get state(){return state(data,currentOptions);},
     selectAt(x,y){if(disposed||![x,y].every(Number.isFinite)||x<0||y<0||x>=width||y>=height)return false;return mode==='2d'?(fallback?.selectAt(x,y)??false):renderer.selectAt(x,y,width,height);},
+    get visibleBodyIds(){if(mode==='2d')return fallback?.hits.filter(h=>h.visible).map(h=>h.id)??[];const p=projection(currentOptions.camera,width,height);return state(data,currentOptions).bodies.filter(b=>p.point(b.position).visible).map(b=>b.id);},
     get mode(){return mode;},
     dispose(){release();disposed=true;}
   };
