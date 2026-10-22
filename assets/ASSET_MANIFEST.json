@@ -331,5 +331,43 @@
       "basis": "Original generated artwork; no NASA, USGS or other imagery sampled",
       "illustrative": true
     }
+  ],
+  "procedural_assets": [
+    {
+      "id": "surface-generator",
+      "filename": "src/surfaces.js",
+      "sha256": "8ba22f2e38e03755e2916212c29c190a5d183d2b1d71e3d88539ac3ba962ae07",
+      "creator": "Tech Leo / Metavie contributors",
+      "license": "MIT",
+      "kind": "procedural-code",
+      "original_url": "https://github.com/peterpan42388/metavie-celestial-simulator/blob/codex/celestial-visual-interaction/src/surfaces.js"
+    },
+    {
+      "id": "seeded-stars-and-layout",
+      "filename": "src/visuals.js",
+      "sha256": "904687070b3ba7d7f9ee3a3b7c89ce77fdeebde4ccce687a3c7a87086853ff77",
+      "creator": "Tech Leo / Metavie contributors",
+      "license": "MIT",
+      "kind": "procedural-code",
+      "original_url": "https://github.com/peterpan42388/metavie-celestial-simulator/blob/codex/celestial-visual-interaction/src/visuals.js"
+    },
+    {
+      "id": "bitmap-label-atlas",
+      "filename": "src/label-atlas.js",
+      "sha256": "93f2d6311ba3b847ec4d234df5568744a1dba985b5ea7c19e7c599dc2ce08a29",
+      "creator": "Tech Leo / Metavie contributors",
+      "license": "MIT",
+      "kind": "procedural-code",
+      "original_url": "https://github.com/peterpan42388/metavie-celestial-simulator/blob/codex/celestial-visual-interaction/src/label-atlas.js"
+    },
+    {
+      "id": "saturn-rings-and-halo",
+      "filename": "src/scene.js",
+      "sha256": "7ed8ff101e2f6197875c02fc1db6c0f949fb610d303984da9fbe9e94864614ae",
+      "creator": "Tech Leo / Metavie contributors",
+      "license": "MIT",
+      "kind": "procedural-code",
+      "original_url": "https://github.com/peterpan42388/metavie-celestial-simulator/blob/codex/celestial-visual-interaction/src/scene.js"
+    }
   ]
 }
