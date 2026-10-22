@@ -1,0 +1,595 @@
+{
+  "environment": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "os_release": "25.3.0",
+    "gpu": "Chromium ANGLE SwiftShader (software)",
+    "font_source": "Pinned host system sans-serif / generated bitmap atlas"
+  },
+  "pixel_repeat_profiles": [
+    "1024x900 DPR1 WebGL",
+    "1024x900 DPR1 Canvas"
+  ],
+  "interaction_checks": [
+    "desktop real pointer drag orbits without selecting",
+    "wheel zoom and keyboard-accessible reset",
+    "simulated two-touch pinch zooms without selecting",
+    "moment switch preserves camera",
+    "actual WebGL context loss preserves camera/moment",
+    "performance fallback preserves reset camera",
+    "camera bounds reach 72/-52/100"
+  ],
+  "browser": "145.0.7632.6",
+  "source_commit": "60c35192f649ad3b77ad38ffc6c899c5b6ce3d8f",
+  "runtime_sha256": "5a538bee7448789e103ce85182252451bc5fe3051cbc5dd85a44583a68185635",
+  "asset_manifest_sha256": "b05508720143daea3835d81d2cf81cdb17a3e8064f2b90e0a4746553d9c99e38",
+  "same_environment_pixel_repeat": true,
+  "profiles_are_emulated": true,
+  "notes": [
+    "Fixed-origin local perspective, no altered angles",
+    "Original MIT illustrative surfaces, not NASA/USGS imagery",
+    "All-direction overview is host example navigation, not a second position source"
+  ],
+  "evidence": [
+    {
+      "profile": "desktop-landscape",
+      "mode": "webgl",
+      "dpr": 1,
+      "camera": {
+        "yaw_deg": 0,
+        "pitch_deg": 0,
+        "fov_deg": 70
+      },
+      "bodies": 12,
+      "placements": [
+        {
+          "id": "jupiter",
+          "x": 668.3712581582492,
+          "y": 464.38693335743034,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "mars",
+          "x": 855.3556965821786,
+          "y": 144.95635011997496,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "mercury",
+          "x": 974.2596640472362,
+          "y": 218.49719084071208,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "moon",
+          "x": 770.020326477359,
+          "y": 395.6461400143301,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "north_node",
+          "x": 1163.8146759835506,
+          "y": 313,
+          "w": 96,
+          "h": 25
+        },
+        {
+          "id": "saturn",
+          "x": 947.3745840030211,
+          "y": 469.57408841718046,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "sun",
+          "x": 560.1407316735283,
+          "y": 198.96586756462764,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "venus",
+          "x": 426.96172779490325,
+          "y": 389.1015517671387,
+          "w": 72,
+          "h": 25
+        }
+      ],
+      "horizontalOverflow": false,
+      "pageErrors": []
+    },
+    {
+      "profile": "desktop-landscape",
+      "mode": "canvas",
+      "dpr": 1,
+      "camera": {
+        "yaw_deg": 0,
+        "pitch_deg": 0,
+        "fov_deg": 70
+      },
+      "bodies": 12,
+      "placements": [
+        {
+          "id": "jupiter",
+          "x": 668.3712581582492,
+          "y": 464.38693335743034,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "mars",
+          "x": 855.3556965821786,
+          "y": 144.95635011997496,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "mercury",
+          "x": 974.2596640472362,
+          "y": 218.49719084071208,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "moon",
+          "x": 770.020326477359,
+          "y": 395.6461400143301,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "north_node",
+          "x": 1163.8146759835506,
+          "y": 313,
+          "w": 96,
+          "h": 25
+        },
+        {
+          "id": "saturn",
+          "x": 947.3745840030211,
+          "y": 469.57408841718046,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "sun",
+          "x": 560.1407316735283,
+          "y": 198.96586756462764,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "venus",
+          "x": 426.96172779490325,
+          "y": 389.1015517671387,
+          "w": 72,
+          "h": 25
+        }
+      ],
+      "horizontalOverflow": false,
+      "pageErrors": []
+    },
+    {
+      "profile": "desktop-portrait",
+      "mode": "webgl",
+      "dpr": 1,
+      "camera": {
+        "yaw_deg": 0,
+        "pitch_deg": 0,
+        "fov_deg": 70
+      },
+      "bodies": 12,
+      "placements": [
+        {
+          "id": "jupiter",
+          "x": 460.37125815824913,
+          "y": 464.38693335743034,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "mars",
+          "x": 647.3556965821784,
+          "y": 144.95635011997496,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "mercury",
+          "x": 766.2596640472361,
+          "y": 218.49719084071208,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "moon",
+          "x": 562.0203264773589,
+          "y": 395.6461400143301,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "north_node",
+          "x": 818.4815283988239,
+          "y": 313,
+          "w": 96,
+          "h": 25
+        },
+        {
+          "id": "saturn",
+          "x": 739.3745840030211,
+          "y": 469.57408841718046,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "sun",
+          "x": 352.1407316735283,
+          "y": 198.96586756462764,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "venus",
+          "x": 218.9617277949033,
+          "y": 389.1015517671387,
+          "w": 72,
+          "h": 25
+        }
+      ],
+      "horizontalOverflow": false,
+      "pageErrors": []
+    },
+    {
+      "profile": "desktop-portrait",
+      "mode": "canvas",
+      "dpr": 1,
+      "camera": {
+        "yaw_deg": 0,
+        "pitch_deg": 0,
+        "fov_deg": 70
+      },
+      "bodies": 12,
+      "placements": [
+        {
+          "id": "jupiter",
+          "x": 460.37125815824913,
+          "y": 464.38693335743034,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "mars",
+          "x": 647.3556965821784,
+          "y": 144.95635011997496,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "mercury",
+          "x": 766.2596640472361,
+          "y": 218.49719084071208,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "moon",
+          "x": 562.0203264773589,
+          "y": 395.6461400143301,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "north_node",
+          "x": 818.4815283988239,
+          "y": 313,
+          "w": 96,
+          "h": 25
+        },
+        {
+          "id": "saturn",
+          "x": 739.3745840030211,
+          "y": 469.57408841718046,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "sun",
+          "x": 352.1407316735283,
+          "y": 198.96586756462764,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "venus",
+          "x": 218.9617277949033,
+          "y": 389.1015517671387,
+          "w": 72,
+          "h": 25
+        }
+      ],
+      "horizontalOverflow": false,
+      "pageErrors": []
+    },
+    {
+      "profile": "iphone-portrait",
+      "mode": "webgl",
+      "dpr": 3,
+      "camera": {
+        "yaw_deg": 0,
+        "pitch_deg": 0,
+        "fov_deg": 70
+      },
+      "bodies": 12,
+      "placements": [
+        {
+          "id": "jupiter",
+          "x": 176.80538963584564,
+          "y": 281.1611897584187,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "mars",
+          "x": 180.74063025224768,
+          "y": 84.58852315075382,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "mercury",
+          "x": 248.77224580962184,
+          "y": 129.8444251327459,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "moon",
+          "x": 127.92658273083177,
+          "y": 238.8591630857416,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "saturn",
+          "x": 276.6912705045289,
+          "y": 235.54481168247315,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "sun",
+          "x": 110.20198872217124,
+          "y": 117.8251492705401,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "venus",
+          "x": 28.24567864301743,
+          "y": 234.83172416439305,
+          "w": 72,
+          "h": 25
+        }
+      ],
+      "horizontalOverflow": false,
+      "pageErrors": []
+    },
+    {
+      "profile": "iphone-portrait",
+      "mode": "canvas",
+      "dpr": 3,
+      "camera": {
+        "yaw_deg": 0,
+        "pitch_deg": 0,
+        "fov_deg": 70
+      },
+      "bodies": 12,
+      "placements": [
+        {
+          "id": "jupiter",
+          "x": 176.80538963584564,
+          "y": 281.1611897584187,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "mars",
+          "x": 180.74063025224768,
+          "y": 84.58852315075382,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "mercury",
+          "x": 248.77224580962184,
+          "y": 129.8444251327459,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "moon",
+          "x": 127.92658273083177,
+          "y": 238.8591630857416,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "saturn",
+          "x": 276.6912705045289,
+          "y": 235.54481168247315,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "sun",
+          "x": 110.20198872217124,
+          "y": 117.8251492705401,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "venus",
+          "x": 28.24567864301743,
+          "y": 234.83172416439305,
+          "w": 72,
+          "h": 25
+        }
+      ],
+      "horizontalOverflow": false,
+      "pageErrors": []
+    },
+    {
+      "profile": "android-portrait",
+      "mode": "webgl",
+      "dpr": 2.625,
+      "camera": {
+        "yaw_deg": 0,
+        "pitch_deg": 0,
+        "fov_deg": 70
+      },
+      "bodies": 12,
+      "placements": [
+        {
+          "id": "jupiter",
+          "x": 186.30538963584564,
+          "y": 281.1611897584187,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "mars",
+          "x": 190.24063025224774,
+          "y": 84.58852315075382,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "mercury",
+          "x": 258.27224580962184,
+          "y": 129.8444251327459,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "moon",
+          "x": 137.42658273083177,
+          "y": 238.8591630857416,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "saturn",
+          "x": 286.1912705045289,
+          "y": 235.54481168247315,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "sun",
+          "x": 119.70198872217122,
+          "y": 117.8251492705401,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "venus",
+          "x": 37.74567864301743,
+          "y": 234.83172416439305,
+          "w": 72,
+          "h": 25
+        }
+      ],
+      "horizontalOverflow": false,
+      "pageErrors": []
+    },
+    {
+      "profile": "android-portrait",
+      "mode": "canvas",
+      "dpr": 2.625,
+      "camera": {
+        "yaw_deg": 0,
+        "pitch_deg": 0,
+        "fov_deg": 70
+      },
+      "bodies": 12,
+      "placements": [
+        {
+          "id": "jupiter",
+          "x": 186.30538963584564,
+          "y": 281.1611897584187,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "mars",
+          "x": 190.24063025224774,
+          "y": 84.58852315075382,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "mercury",
+          "x": 258.27224580962184,
+          "y": 129.8444251327459,
+          "w": 75,
+          "h": 25
+        },
+        {
+          "id": "moon",
+          "x": 137.42658273083177,
+          "y": 238.8591630857416,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "saturn",
+          "x": 286.1912705045289,
+          "y": 235.54481168247315,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "sun",
+          "x": 119.70198872217122,
+          "y": 117.8251492705401,
+          "w": 72,
+          "h": 25
+        },
+        {
+          "id": "venus",
+          "x": 37.74567864301743,
+          "y": 234.83172416439305,
+          "w": 72,
+          "h": 25
+        }
+      ],
+      "horizontalOverflow": false,
+      "pageErrors": []
+    }
+  ],
+  "automated_tests_passed": 36,
+  "visual_review": {
+    "status": "local-review-pass",
+    "screenshots_reviewed": 8,
+    "extra_limit_screenshot": "camera-limits.png",
+    "checked": [
+      "visible seeded star field",
+      "illustrative textured sun and multiple planets",
+      "readable non-overlapping label placements",
+      "quiet ecliptic guide",
+      "pending and inactive states",
+      "unclipped controls",
+      "fixed-origin camera and complete overview hints"
+    ],
+    "remaining_acceptance": [
+      "physical mobile devices",
+      "Safari/WebKit",
+      "consumer local integration review"
+    ]
+  }
+}
