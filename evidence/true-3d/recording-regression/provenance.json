@@ -1,0 +1,60 @@
+{
+  "schema_version": "cosmos_provenance.v1",
+  "simulator_release": "0.3.0-preview.1",
+  "fixture_id": "synthetic_geometry_001",
+  "fixture_hash": "22f1191ff6fb109a8d7a6de492d5b072631db941a6b5c3a0bc6a38b29586960a",
+  "shot_hash": "598879954b419658c6f60777a683f5244f1d8aee6cacb3ba5700b9ab065baf03",
+  "assets": [
+    {
+      "id": "procedural-geometry",
+      "license": "MIT",
+      "source": "repository/src"
+    },
+    {
+      "id": "procedural-surface-pack.v2",
+      "license": "MIT",
+      "source": "assets/ASSET_MANIFEST.json"
+    },
+    {
+      "id": "seeded-stars-and-label-atlas",
+      "license": "MIT",
+      "source": "repository/src"
+    },
+    {
+      "id": "three",
+      "license": "MIT",
+      "source": "https://github.com/mrdoob/three.js/tree/r180"
+    }
+  ],
+  "environment": {
+    "browser": "145.0.7632.6",
+    "platform": "darwin",
+    "arch": "arm64",
+    "gpu": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+    "os_release": "25.3.0",
+    "device_scale_factor": 1,
+    "source_commit": "e7084f1973f53ce6a2fa53d0a391f365b38374f7",
+    "source_hash": "0ea3b14baff29f8b9701dc81b1b9730bbc2c36afeed0616f667fd1bc3c5d1573",
+    "ffmpeg": "ffmpeg version 8.0.1 Copyright (c) 2000-2025 the FFmpeg developers"
+  },
+  "render_settings": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "frames": 12
+  },
+  "frame_hashes": [
+    "a5b0522215114a80e58a210b71a1e7fb948a3f182b3289bd8f20b575633dba4a",
+    "7b85cf7fffb0e480b65ea7595f7334d63ebf982e809d2e8cf708128d8139b156",
+    "4408352e62fac21790a61ff671e80ec0a8ec3e1f130214a865e9c79e5c72673b",
+    "1cd97e594ced99af5702cda1469650a91debb66d0f89e0faba90a89d68b284f6",
+    "644766bff7c07b3e69e741f2766433b0dd124e0237430329add0af970837abcf",
+    "d4de7390a8ba46ac6ff0286e8cda31da7e39fc8c836f3cacc51c2ab101953ec0",
+    "b6ba82cf27149fdc86d2c065cab3e336bb9d36dc2dd37168155e0e1ba99a461b",
+    "a1f9796e4ef008f8ad123085cbf14f9a04bacb17736fa13bfce30b24b6f7018b",
+    "5e39d904fc424221410d35674ee2cf065d77b0f161df0c0d0517996d82808b46",
+    "91bfe8bb946d6a55bb6180ab2da24789db83128ffeb60ab5b00b6894732c15c9",
+    "4089b7c2407c51e23797dbc85cb163bd0f65a3707287a9acda5366ca3641d29f",
+    "d46c3784961b52439ebc7e8cdf9d2cb10e0f5b2cecd788c15fe390d429dbe2db"
+  ]
+}
