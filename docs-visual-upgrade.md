@@ -1,4 +1,6 @@
-# Visual and interaction preview
+# Historical visual and interaction preview
+
+This document describes the previous 0.2 preview. The current feature branch follows [the 0.3 Earth-anchored contract](docs-true-3d.md).
 
 Branch `codex/celestial-visual-interaction`, based on `198a746`. Proposed next minor version: **0.2.0**, feature package **0.2.0-preview.1**. No release tag or consumer pin changes. MIT remains unchanged.
 

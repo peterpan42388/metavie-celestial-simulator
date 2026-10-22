@@ -14,7 +14,7 @@ function pixel(core,id,w,h){
 }
 test('actual raycast selects projected bodies across viewport, camera and discovery state',()=>{
  for(const [width,height] of [[800,600],[1080,1920]])for(const status of ['pending','discovered']){
-  const events=[],core=createScene(data,{moment_id:'moment_0',camera:{yaw_deg:-10,pitch_deg:5},selection:{sun:status,moon:status},onSelect:e=>events.push(e)});
+  const events=[],core=createScene(data,{moment_id:'moment_0',camera:{yaw_deg:-10,pitch_deg:5,fov_deg:100},selection:{sun:status,moon:status},onSelect:e=>events.push(e)});
   for(const id of ['sun','moon']){assert.equal(core.selectAt(...pixel(core,id,width,height),width,height),true);assert.deepEqual(events.at(-1),{id,state:status});}
   assert.equal(core.selectAt(0,0,width,height),false);core.dispose();
  }

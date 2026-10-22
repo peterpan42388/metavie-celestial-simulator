@@ -1,14 +1,16 @@
 # Metavie Celestial Simulator
 
-MIT. Independent generic celestial visualization, version 0.2.0-preview.1.
+MIT. Independent generic celestial visualization, version 0.3.0-preview.1.
 
 `npm ci && npm test`. `npx playwright install chromium` then `npm run record -- shots/landscape.json output/landscape` (requires FFmpeg with libx264). Portrait: use `shots/portrait.json`.
+
+Current Earth-anchored WebGL-only host and quality contract: [0.3 preview guide](docs-true-3d.md). Open `examples/true-3d.html` locally; use `npm run verify:true-3d` for the current acceptance suite. `require_webgl:true` reports unavailable instead of a Canvas downgrade.
 
 ## Contracts
 
 `celestial_positions.v1`: `{schema_version, moments: [{id, color, bodies: [{id, kind, longitude_deg, latitude_deg, distance_au, altitude_deg, label}]}]}`. Angles in degrees; ecliptic longitude/latitude of date. Altitude is independently supplied by the consumer; no observer input or ephemeris calculation. `axis` bodies render as markers, never spheres. Earth is the camera origin and must be omitted by consumers. Moment ids are opaque: consumers map their discrete datasets to them. No continuous ephemeris interpolation.
 
-`state(data,{moment_id,camera,ring,selection})` is deterministic. Camera is Earth-centered: yaw ±72°, pitch ±52°, FOV 30–100°. Ecliptic coordinates determine geometry; below-horizon presentation uses supplied altitude. This is an ecliptic schematic, not an observer-oriented planetarium.
+`state(data,{moment_id,camera,ring,selection})` is deterministic. Earth is the coordinate origin; the observer is fixed above it. Camera azimuth covers 360°, pitch ±70°, FOV 18–110°. Ecliptic coordinates determine geometry; below-horizon presentation uses supplied altitude. This is an ecliptic schematic, not an observer-oriented planetarium.
 
 Ring is optional external generic geometry: `[{id,start_deg,width_deg,color}]`. The caller owns ordering, meaning and interaction state. Selection values are `pending`, `discovered`, `disabled`; only the first two emit `{id,state}`. No application business rules exist here.
 
@@ -32,6 +34,6 @@ For the verified local recording environment, set `CELESTIAL_CHROMIUM_PATH` to a
 
 See [the minimal pointer example](examples/picking.html): the host maps `clientX/clientY` through `getBoundingClientRect()` into render viewport units. This handles CSS scaling and device pixel ratio without DOM access inside the scene. It also suppresses drags and attaches handlers to every replacement canvas, so context-loss fallback remains interactive. Serve the repository root locally to open the example. Run `node scripts/verify-picking.mjs` to check real browser clicks, scaling and context-loss fallback; optionally set `CELESTIAL_CHROMIUM_PATH` as for recording.
 
-## Visual interaction preview (new feature branch)
+## Historical 0.2 visual interaction preview
 
 See [the complete additive API, gesture, memory and asset guide](docs-visual-upgrade.md), and open `examples/exploration.html` on a local static server. This branch proposes 0.2.0; package 0.2.0-preview.1 is for local review. Camera bounds expand to yaw ±72°, pitch ±52°, FOV 30–100°; `orbitBy`, `zoomBy`, `resetCamera`, `camera`, `state` and `hoverAt` are additive. Omitting camera on `setOptions` preserves it. Default rendering now includes seeded stars, shaded procedural surfaces and decluttered glyph labels. All original visual assets remain MIT.

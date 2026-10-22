@@ -16,10 +16,11 @@ export function positions(data) {
  }
  return structuredClone(data);
 }
+export const normalizeYaw=n=>((n%360+540)%360)-180;
 export function camera(value={}) {
  exact(value,['yaw_deg','pitch_deg','fov_deg']);
  const c={yaw_deg:0,pitch_deg:0,fov_deg:70,...value};
- if(!finite(c.yaw_deg,-72,72)||!finite(c.pitch_deg,-52,52)||!finite(c.fov_deg,30,100)) fail('Camera outside controlled Earth-view bounds'); return c;
+ if(typeof c.yaw_deg!=='number'||!Number.isFinite(c.yaw_deg)||!finite(c.pitch_deg,-70,70)||!finite(c.fov_deg,18,110)) fail('Camera outside controlled Earth-view bounds'); c.yaw_deg=normalizeYaw(c.yaw_deg);return c;
 }
 export function ring(value=[]) {
  if(!Array.isArray(value)) fail('Invalid ring'); const ids=new Set();

@@ -9,7 +9,7 @@ function drawSurface(ctx,x,y,r,id){
 export function drawFallback(ctx,width,height,data,options){
  const s=state(data,options),visuals=options.visuals??{},cx=width/2,cy=height/2+s.camera.pitch_deg/52*height*.12,r=Math.min(width,height)*.37*(70/s.camera.fov_deg);
  ctx.fillStyle='#040914';ctx.fillRect(0,0,width,height);
- if(visuals.stars!==false){const proj=projection(s.camera,width,height);for(const star of stars){const p=proj.point(star.position);if(!p.visible)continue;ctx.globalAlpha=star.brightness*.6;ctx.fillStyle='#c1d9ed';const size=[.7,1,1.4][star.layer];ctx.fillRect(p.x,p.y,size,size);}ctx.globalAlpha=1;}
+ if(visuals.stars!==false){const proj=projection(s.camera,width,height,{earth_occlusion:false});for(const star of stars){const p=proj.point(star.position);if(!p.visible)continue;ctx.globalAlpha=star.brightness*.6;ctx.fillStyle='#c1d9ed';const size=[.7,1,1.4][star.layer];ctx.fillRect(p.x,p.y,size,size);}ctx.globalAlpha=1;}
  const point=(angle,rad=r)=>[cx+Math.sin((angle+s.camera.yaw_deg)*Math.PI/180)*rad,cy-Math.cos((angle+s.camera.yaw_deg)*Math.PI/180)*rad];
  ctx.strokeStyle='#244050';ctx.lineWidth=.7;ctx.setLineDash?.([2,7]);ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();ctx.setLineDash?.([]);
  for(const seg of s.ring){ctx.strokeStyle=seg.color;ctx.globalAlpha=.45;ctx.lineWidth=2;ctx.beginPath();ctx.arc(cx,cy,r,(seg.start_deg+s.camera.yaw_deg-90)*Math.PI/180,(seg.start_deg+s.camera.yaw_deg+seg.width_deg-90)*Math.PI/180);ctx.stroke();}ctx.globalAlpha=1;

@@ -12,7 +12,7 @@ export function createGestureController(view,{viewport,threshold_px=8}={}){
   },
   pointerUp(p){if(!valid(p))return false;const prev=pointers.get(p.pointer_id);if(!prev)return false;const moved=prev.moved||Math.hypot(p.x-prev.start_x,p.y-prev.start_y)>=threshold_px;const tap=!blocked&&!moved&&pointers.size===1;pointers.delete(p.pointer_id);if(pointers.size>=2)pinchDistance=distance();if(!pointers.size){blocked=false;pinchDistance=0;}if(!tap)return false;const v=viewport();return view.selectAt(p.x/v.css_width*v.render_width,p.y/v.css_height*v.render_height);},
   pointerCancel(p){pointers.delete(p.pointer_id);blocked=pointers.size>0;if(!pointers.size)pinchDistance=0;},
-  wheel({delta}){if(!Number.isFinite(delta))return;view.zoomBy({delta});},
+  wheel({delta}){if(!Number.isFinite(delta))return;if(pointers.size)blocked=true;view.zoomBy({delta});},
   reset(){pointers.clear();blocked=false;pinchDistance=0;}
  };
 }

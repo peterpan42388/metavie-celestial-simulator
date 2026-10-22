@@ -21,11 +21,28 @@ export function surfacePixels(id,width=512){
   if(id==='jupiter'){const d=Math.hypot((u-.68)*1.8,(v-.64)*4);if(d<.17)rgb=[177+grain*35,92+grain*25,65];}
   if(id==='earth'){
    const land=Math.sin(u*24+Math.sin(v*19)*2)+Math.cos(u*17-v*21)+Math.sin(u*11+v*35)*.5;
-   if(land>.6&&Math.abs(v-.5)<.38)rgb=[36+grain*36,92+grain*54,63+grain*30];
-   const clouds=Math.sin(u*35+v*16+Math.sin(v*35)*2)+Math.cos(u*49-v*11);if(clouds>1.25)rgb=rgb.map(c=>c*.35+170);
-   if(v<.07||v>.93)rgb=[205,223,225];
+   const blend=clamp((land-.5)/.35)*clamp((.4-Math.abs(v-.5))/.05),ocean=[13,52+Math.cos(v*7)*4,98+Math.cos(v*9)*6],ground=[42,102,72];
+   rgb=ocean.map((c,i)=>c*(1-blend)+ground[i]*blend);
+   const clouds=Math.sin(u*35+v*16+Math.sin(v*35)*2)+Math.cos(u*49-v*11),cloud=clamp((clouds-1.2)/.65)*.7;
+   rgb=rgb.map(c=>c*(1-cloud)+220*cloud);
+   const polar=clamp((.035-Math.min(v,1-v))/.02);rgb=rgb.map(c=>c*(1-polar)+220*polar);
   }
   const index=(y*width+x)*4;for(let k=0;k<3;k++)pixels[index+k]=Math.round(rgb[k]);pixels[index+3]=255;
  }
  const result={width,height,pixels};cache.set(key,result);return result;
+}
+
+const detailCache=new Map();
+// Tangent-space detail derived deterministically from the same illustrative colour field.
+export function surfaceDetails(id,width=256){
+ id=surfaceIds.includes(id)?id:'moon';const key=`${id}:${width}`;if(detailCache.has(key))return detailCache.get(key);
+ const map=surfacePixels(id,width),height=map.height,normal=new Uint8Array(width*height*4),roughness=new Uint8Array(width*height*4);
+ const sample=(x,y)=>{const i=(Math.max(0,Math.min(height-1,y))*width+(x+width)%width)*4;return (map.pixels[i]*.2126+map.pixels[i+1]*.7152+map.pixels[i+2]*.0722)/255;};
+ const strength=['moon','mercury','mars','pluto'].includes(id)?2.5:.8;
+ for(let y=0;y<height;y++)for(let x=0;x<width;x++){
+  const dx=(sample(x-1,y)-sample(x+1,y))*strength,dy=(sample(x,y+1)-sample(x,y-1))*strength,len=Math.hypot(dx,dy,1),i=(y*width+x)*4;
+  normal.set([Math.round((dx/len*.5+.5)*255),Math.round((dy/len*.5+.5)*255),Math.round((1/len*.5+.5)*255),255],i);
+  const value=Math.round((.72+sample(x,y)*.25)*255);roughness.set([value,value,value,255],i);
+ }
+ const result={width,height,normal,roughness};detailCache.set(key,result);return result;
 }
