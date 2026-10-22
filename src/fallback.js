@@ -21,7 +21,7 @@ export function drawFallback(ctx,width,height,data,options){
   if(b.selection==='discovered'||(visuals.focus_id===b.id&&b.selection!=='disabled')){ctx.strokeStyle=b.color;ctx.lineWidth=.8;ctx.beginPath();ctx.arc(x,y,radius+4,0,Math.PI*2);ctx.stroke();}
   hits.push({...b,x,y,radius,visible:x>0&&y>0&&x<width&&y<height});
  }ctx.globalAlpha=1;
- const placements=visuals.labels==='none'?[]:labelLayout(hits,width,height);
+ const placements=visuals.labels==='none'?[]:labelLayout(hits,width,height,visuals.label_padding);
  for(const item of placements){ctx.globalAlpha=item.selection==='disabled'?.65:.95;ctx.font='12px sans-serif';ctx.fillStyle='#dce8f2';ctx.fillText(`${glyphs[item.id]??'·'} ${visuals.labels==='symbols'?'':item.label}`,item.x,item.y+16);ctx.fillStyle=item.color;ctx.fillRect(item.x,item.y+22,14,1);}ctx.globalAlpha=1;
  function hitAt(x,y){if(![x,y].every(Number.isFinite)||x<0||y<0||x>=width||y>=height)return null;const hit=hits.find(h=>Math.hypot(x-h.x,y-h.y)<Math.max(18,h.radius+4));if(hit)return hit.id;const a=(Math.atan2(x-cx,cy-y)*180/Math.PI-s.camera.yaw_deg+360)%360;const seg=s.ring.find(v=>(a-v.start_deg+360)%360<v.width_deg);return Math.abs(Math.hypot(x-cx,y-cy)-r)<14&&seg?seg.id:null;}
  return {state:s,placements,hits,hitAt,selectAt(x,y){const id=hitAt(x,y);return id?select(id,options.selection??{},options.onSelect):false;}};
