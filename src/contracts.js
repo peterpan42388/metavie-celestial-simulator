@@ -19,7 +19,7 @@ export function positions(data) {
 export function camera(value={}) {
  exact(value,['yaw_deg','pitch_deg','fov_deg']);
  const c={yaw_deg:0,pitch_deg:0,fov_deg:70,...value};
- if(!finite(c.yaw_deg,-45,45)||!finite(c.pitch_deg,-30,30)||!finite(c.fov_deg,45,85)) fail('Camera outside controlled Earth-view bounds'); return c;
+ if(!finite(c.yaw_deg,-72,72)||!finite(c.pitch_deg,-52,52)||!finite(c.fov_deg,30,100)) fail('Camera outside controlled Earth-view bounds'); return c;
 }
 export function ring(value=[]) {
  if(!Array.isArray(value)) fail('Invalid ring'); const ids=new Set();

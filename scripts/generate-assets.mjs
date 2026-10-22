@@ -1,0 +1,10 @@
+import {surfacePixels,surfaceIds} from '../src/surfaces.js';
+import {deflateSync} from 'node:zlib';
+import {mkdir,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+const crc32=bytes=>{let c=0xffffffff;for(const b of bytes){c^=b;for(let i=0;i<8;i++)c=(c>>>1)^(0xedb88320&-(c&1));}return(c^0xffffffff)>>>0;};
+function chunk(type,bytes){const name=Buffer.from(type),length=Buffer.alloc(4),crc=Buffer.alloc(4);length.writeUInt32BE(bytes.length);crc.writeUInt32BE(crc32(Buffer.concat([name,bytes])));return Buffer.concat([length,name,bytes,crc]);}
+function png(map){const header=Buffer.alloc(13);header.writeUInt32BE(map.width,0);header.writeUInt32BE(map.height,4);header[8]=8;header[9]=6;const scan=Buffer.alloc((map.width*4+1)*map.height);for(let y=0;y<map.height;y++){scan[y*(map.width*4+1)]=0;scan.set(map.pixels.subarray(y*map.width*4,(y+1)*map.width*4),y*(map.width*4+1)+1);}return Buffer.concat([Buffer.from([137,80,78,71,13,10,26,10]),chunk('IHDR',header),chunk('IDAT',deflateSync(scan,{level:9})),chunk('IEND',Buffer.alloc(0))]);}
+const assets=[];await mkdir(new URL('../assets/',import.meta.url),{recursive:true});
+for(const id of surfaceIds)for(const width of [512,128]){const map=surfacePixels(id,width),bytes=png(map),filename=`assets/${id}-${width}.png`;await writeFile(new URL(`../${filename}`,import.meta.url),bytes);assets.push({id,quality:width===512?'standard':'low_memory',filename,width,height:map.height,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex'),creator:'Tech Leo / Metavie contributors',source:'Original deterministic synthesis in src/surfaces.js',original_url:'https://github.com/peterpan42388/metavie-celestial-simulator/blob/codex/celestial-visual-interaction/src/surfaces.js',license:'MIT',basis:'Original generated artwork; no NASA, USGS or other imagery sampled',illustrative:true});}
+await writeFile(new URL('../assets/ASSET_MANIFEST.json',import.meta.url),JSON.stringify({version:'visual_pack.v1',assets},null,2)+'\n');console.log(`${assets.length} original maps, ${assets.reduce((n,a)=>n+a.bytes,0)} bytes`);

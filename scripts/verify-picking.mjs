@@ -23,7 +23,7 @@ try{
  await page.mouse.click(10,10);assert.equal(await page.locator('output').textContent(),'unchanged');
  await page.evaluate(()=>document.querySelector('canvas').getContext('webgl2').getExtension('WEBGL_lose_context').loseContext());
  await page.locator('#mount[data-mode="2d"]').waitFor();
- const target=await page.evaluate(()=>{const r=document.querySelector('canvas').getBoundingClientRect();const radius=600*.37*(.68+.18*(-6+90)/180);return {x:r.left+400*r.width/800,y:r.top+(300-radius)*r.height/600};});
+ const target=await page.evaluate(async()=>{const {syntheticFixture}=await import('/src/fixtures.js');const data=syntheticFixture('synthetic_geometry_001'),bodies=data.moments[0].bodies;const max=Math.max(1,...bodies.map(b=>Math.log1p(b.distance_au)));const r=document.querySelector('canvas').getBoundingClientRect(),radius=600*.37*(.22+.66*Math.log1p(.1)/max);return {x:r.left+400*r.width/800,y:r.top+(300-radius)*r.height/600};});
  await page.mouse.click(target.x,target.y);assert.deepEqual(JSON.parse(await page.locator('output').textContent()),{id:'sun',state:'pending'});assert.deepEqual(errors,[]);
  const proof={browser:browser.version(),deviceScaleFactor:2,canvasPixels:[800,600],cssPixels:[400,300],checks:['WebGL real pointer selects sun','CSS-scaled coordinates at DPR 2','drag does not select','empty click does not select','actual WebGL context loss switches canvas','fallback pointer selects same sun'],pageErrors:errors};
  await mkdir(resolve(root,'evidence'),{recursive:true});await writeFile(resolve(root,'evidence/picking-browser.json'),JSON.stringify(proof,null,2)+'\n');console.log(JSON.stringify(proof));

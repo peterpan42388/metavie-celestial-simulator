@@ -1,6 +1,6 @@
 {
   "name": "@metavie/celestial-simulator",
-  "version": "0.1.0",
+  "version": "0.2.0-preview.1",
   "type": "module",
   "license": "MIT",
   "exports": {
@@ -10,11 +10,15 @@
     "./fallback": "./src/fallback.js",
     "./recording": "./src/recording.js",
     "./fixtures": "./src/fixtures.js",
-    "./view": "./src/view.js"
+    "./view": "./src/view.js",
+    "./gestures": "./src/gestures.js",
+    "./visuals": "./src/visuals.js"
   },
   "scripts": {
     "test": "node --test",
-    "record": "node scripts/record.mjs"
+    "record": "node scripts/record.mjs",
+    "assets:generate": "node scripts/generate-assets.mjs",
+    "verify:visuals": "node scripts/verify-visuals.mjs"
   },
   "dependencies": {
     "three": "0.180.0"
